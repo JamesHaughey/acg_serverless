@@ -6,6 +6,8 @@ provider:
   name: aws
   runtime: nodejs10.x
   profile: serverless
+  environment:
+    SLS_STAGE: ${opt:stage, self:provider.stage}
 
 functions:
   main:
@@ -32,6 +34,13 @@ functions:
       URL_INSTALL: https://serverless.com/framework/docs/providers/aws/guide/installation/
       URL_ABCD: http://serverless.com/
       URL_AWS: https://aws.amazon.com/
+
+resources:
+  Resources:
+    MyTestBucket${env.SLS_STAGE}:
+      Type: "AWS::S3::Bucket"
+
+
 
 package:
   exclude:
