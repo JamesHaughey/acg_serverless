@@ -1,0 +1,10 @@
+serverless or sls are interchangable
+
+sls congif credentials --provider aws --key "key_here" --secret "secret_key_here" --profile "optional_profile_name"
+
+
+sls deploy - deploys and updates a serverless stack
+sls deploy --stage "stage_name"
+
+invoke - can be used to test a serverless function
+sls invoke --function "func_name" --data "optional_data" --log
